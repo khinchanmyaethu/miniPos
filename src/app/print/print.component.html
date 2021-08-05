@@ -1,0 +1,39 @@
+<div class="container">
+  <a href="#">
+    <img src="assets/ice-creams/logo.png" alt="" width="60" height="30" />
+  </a>
+
+  <table class="table-secondary">
+    <thead>
+      <tr>
+        <th scope="col">Item Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of vouncher.items">
+      <tr>
+        <td scope="row">{{ item.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td></td>
+        <th>Total</th>
+        <td>{{ vouncher.total }} KS</td>
+      </tr>
+      <tr>
+        <td></td>
+        <th>Paid</th>
+        <td>{{ vouncher.paid }} KS</td>
+      </tr>
+      <tr>
+        <td></td>
+        <th>Changed</th>
+        <td>{{ vouncher.changed }} KS</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

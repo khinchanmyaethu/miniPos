@@ -1,0 +1,11 @@
+<div id="pos">
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="assets/ice-creams/logo.png" alt="" width="60" height="30" />
+      </a>
+    </div>
+  </nav>
+  <app-pos (vouncherSent)="vouncher = $event"></app-pos>
+</div>
+<app-print [vouncher]="vouncher"></app-print>

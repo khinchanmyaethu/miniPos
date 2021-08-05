@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <app-items class="col co-8" (addedToCart)="addToCart($event)"></app-items>
+    <div class="col col-4 position-relative">
+      <app-cart
+        [cart]="cart"
+        (vouncherPrinted)="sendVouncher($event)"
+      ></app-cart>
+    </div>
+  </div>
+</div>

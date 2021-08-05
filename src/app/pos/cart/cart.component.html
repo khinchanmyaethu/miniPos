@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-between">
+  <h4>Cart</h4>
+  <h4>{{ cart.length }}</h4>
+</div>
+<hr />
+<div class="overflow-auto scroll-hide" style="height: 45vh">
+  <ul *ngFor="let item of cart" class="list-group">
+    <li
+      *ngIf="item.quantity > 0"
+      class="list-group-item"
+      style="max-width: 400px"
+    >
+      <div class="row g-0">
+        <div class="col-md-2" style="text-align: center; padding-top: 5px">
+          <img
+            src="assets/ice-creams/{{ item.image }}"
+            class="img-fluid rounded-start"
+            alt="text"
+          />
+        </div>
+        <div class="col-md-6">
+          <div>
+            <h6>{{ item.name }}</h6>
+            <p>{{ item.price }} KS</p>
+          </div>
+        </div>
+        <div class="col-md-4" style="padding-top: 10px">
+          <div class="row g-0">
+            <div class="col col-md-4">
+              <button
+                class="btn btn-outline-primary"
+                (click)="item.quantity = item.quantity - 1"
+              >
+                -
+              </button>
+            </div>
+            <div class="col col-md-4">
+              <div class="fw-bold" style="text-align: center; margin-top: 10px">
+                {{ item.quantity }}
+              </div>
+            </div>
+            <div class="col col-md-4">
+              <button
+                class="btn btn-outline-primary"
+                (click)="item.quantity = item.quantity + 1"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="position-absolute bottom-0" style="width: 100%">
+  <hr />
+  <div class="d-flex justify-content-between">
+    <h5>Total</h5>
+    <h5>{{ calculateTotal() }} KS</h5>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <h5>Paid</h5>
+    <input
+      type="text"
+      class="form-control text-end w-75"
+      placeholder="0"
+      [(ngModel)]="paid"
+    />
+  </div>
+  <hr />
+
+  <div class="d-flex justify-content-between">
+    <h5>Changed</h5>
+    <h5>{{ getChanged() }} KS</h5>
+  </div>
+
+  <div class="d-grid gap-2">
+    <button
+      class="btn"
+      style="background-color: #f0de1a"
+      type="button"
+      (click)="print()"
+    >
+      Print
+    </button>
+  </div>
+</div>
